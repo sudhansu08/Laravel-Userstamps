@@ -87,6 +87,12 @@ matrix:
       env: LARAVEL=9.* PHPUNIT=^9.0 TESTBENCH=7.*
     - php: 8.2
       env: LARAVEL=10.* PHPUNIT=^10.0 TESTBENCH=8.*
+    - php: 8.2
+      env: LARAVEL=11.* PHPUNIT=^10.0 TESTBENCH=9.*
+    - php: 8.3
+      env: LARAVEL=10.* PHPUNIT=^10.0 TESTBENCH=8.*
+    - php: 8.3
+      env: LARAVEL=11.* PHPUNIT=^10.0 TESTBENCH=9.*
 
 before_install:
   - travis_retry composer self-update
