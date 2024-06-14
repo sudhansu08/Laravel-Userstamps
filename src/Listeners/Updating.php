@@ -2,7 +2,7 @@
 
 namespace Wildside\Userstamps\Listeners;
 
-use Illuminate\Support\Facades\Auth;
+use Filament\Facades\Filament;
 
 class Updating
 {
@@ -14,10 +14,10 @@ class Updating
      */
     public function handle($model)
     {
-        if (! $model->isUserstamping() || is_null($model->getUpdatedByColumn()) || is_null(Auth::id())) {
+        if (! $model->isUserstamping() || is_null($model->getUpdatedByColumn()) || is_null(Filament::auth()->user()->id)) {
             return;
         }
 
-        $model->{$model->getUpdatedByColumn()} = Auth::id();
+        $model->{$model->getUpdatedByColumn()} = Filament::auth()->user()->id;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Wildside\Userstamps\Listeners;
 
-use Illuminate\Support\Facades\Auth;
+use Filament\Facades\Filament;
 
 class Deleting
 {
@@ -19,7 +19,7 @@ class Deleting
         }
 
         if (is_null($model->{$model->getDeletedByColumn()})) {
-            $model->{$model->getDeletedByColumn()} = Auth::id();
+            $model->{$model->getDeletedByColumn()} = Filament::auth()->user()->id;
         }
 
         $dispatcher = $model->getEventDispatcher();
