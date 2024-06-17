@@ -14,7 +14,7 @@ class Updating
      */
     public function handle($model)
     {
-        if (! $model->isUserstamping() || is_null($model->getUpdatedByColumn()) || is_null(Filament::auth()->user()->id)) {
+        if (! $model->isUserstamping() || is_null($model->getUpdatedByColumn()) || is_null(Filament::auth()?->user()?->id)) {
             return;
         }
 
