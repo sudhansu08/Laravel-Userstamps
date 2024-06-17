@@ -19,7 +19,7 @@ class Deleting
         }
 
         if (is_null($model->{$model->getDeletedByColumn()})) {
-            $model->{$model->getDeletedByColumn()} = Filament::auth()->user()->id;
+            $model->{$model->getDeletedByColumn()} = Filament::auth()?->user()?->id;
         }
 
         $dispatcher = $model->getEventDispatcher();

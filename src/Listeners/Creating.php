@@ -19,11 +19,11 @@ class Creating
         }
 
         if (is_null($model->{$model->getCreatedByColumn()})) {
-            $model->{$model->getCreatedByColumn()} = Filament::auth()->user()->id;
+            $model->{$model->getCreatedByColumn()} = Filament::auth()?->user()?->id;
         }
 
         if (is_null($model->{$model->getUpdatedByColumn()}) && ! is_null($model->getUpdatedByColumn())) {
-            $model->{$model->getUpdatedByColumn()} = Filament::auth()->user()->id;
+            $model->{$model->getUpdatedByColumn()} = Filament::auth()?->user()?->id;
         }
     }
 }

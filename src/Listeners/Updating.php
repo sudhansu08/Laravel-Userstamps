@@ -18,6 +18,6 @@ class Updating
             return;
         }
 
-        $model->{$model->getUpdatedByColumn()} = Filament::auth()->user()->id;
+        $model->{$model->getUpdatedByColumn()} = Filament::auth()?->user()?->id;
     }
 }
