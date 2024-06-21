@@ -146,6 +146,10 @@ trait Userstamps
      */
     protected function getUserClass()
     {
-        return config('auth.providers.users.model');
+        if (Filament::auth()->name === 'web') {
+            return config('auth.providers.users.model');
+        } else {
+            return config('auth.providers.tenants.model');
+        }
     }
 }
