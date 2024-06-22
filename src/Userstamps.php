@@ -1,6 +1,7 @@
 <?php
-
 namespace Wildside\Userstamps;
+
+use Filament\Facades\Filament;
 
 trait Userstamps
 {
